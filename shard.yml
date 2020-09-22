@@ -1,0 +1,19 @@
+name: Finex Core
+version: 0.1.0
+
+authors:
+  - Hữu Hà <business@zsmart.tech>
+
+dependencies:
+  jwt:
+    github: crystal-community/jwt
+  amqp-client:
+    github: cloudamqp/amqp-client.cr
+  nats:
+    github: nats-io/nats.cr
+
+development_dependencies:
+  ameba:
+    github: veelenga/ameba
+
+license: MIT

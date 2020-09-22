@@ -1,0 +1,30 @@
+version: 2.0
+shards:
+  ameba:
+    git: https://github.com/veelenga/ameba.git
+    version: 0.13.2
+
+  amq-protocol:
+    git: https://github.com/cloudamqp/amq-protocol.cr.git
+    version: 0.3.15
+
+  amqp-client:
+    git: https://github.com/cloudamqp/amqp-client.cr.git
+    version: 0.6.0
+
+  bindata:
+    git: https://github.com/spider-gazelle/bindata.git
+    version: 1.6.0
+
+  jwt:
+    git: https://github.com/crystal-community/jwt.git
+    version: 1.4.2
+
+  nats:
+    git: https://github.com/nats-io/nats.cr.git
+    version: 0.0.2+git.commit.aa4979137c5d98fa56baeaae05bd2a1837a46045
+
+  openssl_ext:
+    git: https://github.com/stakach/openssl_ext.git
+    version: 1.2.2
+
