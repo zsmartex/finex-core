@@ -1,5 +1,5 @@
 name: finex-core
-version: 0.1.0
+version: 1.0.0
 
 authors:
   - Hữu Hà <business@zsmart.tech>
@@ -11,6 +11,9 @@ dependencies:
     github: cloudamqp/amqp-client.cr
   nats:
     github: nats-io/nats.cr
+  redis:
+    github: stefanwille/crystal-redis
+    version: ~> 2.6.0
 
 development_dependencies:
   ameba:

@@ -1,4 +1,9 @@
+require "uri"
+require "redis"
+
 module Finex
+  @@cache : Redis?
+
   NAME    = "Finex"
   VERSION = {{ `shards version "#{__DIR__}"`.chomp.stringify.downcase }}
 
@@ -41,6 +46,11 @@ module Finex
     else
       ::Log::Severity::Debug
     end
+  end
+
+  def self.cache
+    uri = URI.parse(ENV["REDIS_URL"])
+    @@cache ||= Redis.new(host: uri.host, port: uri.port, password: uri.password)
   end
 end
 
