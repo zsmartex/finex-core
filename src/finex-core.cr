@@ -50,7 +50,7 @@ module Finex
 
   def self.cache
     uri = URI.parse(ENV["REDIS_URL"])
-    @@cache ||= Redis.new(host: uri.host, port: uri.port, password: uri.password)
+    @@cache ||= Redis.new(host: uri.host.not_nil!, port: uri.port.not_nil!, password: uri.password)
   end
 end
 
