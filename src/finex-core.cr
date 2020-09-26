@@ -41,11 +41,7 @@ module Finex
   end
 
   def self.log_level
-    if Finex.running_in_production?
-      ::Log::Severity::Info
-    else
-      ::Log::Severity::Debug
-    end
+    ::Log::Severity::Debug
   end
 
   def self.cache
