@@ -40,12 +40,11 @@ module Finex::MQ
 
     def subscribe(name : String, &callback : AMQP::Client::DeliverMessage ->)
       queue_name = "finex.#{Random.new.hex(10)}"
+      queue = @channel.queue(name: queue_name, durable: false, auto_delete: true)
+      exchange = queue.bind(exchange: name, routing_key: "#")
+      exchange.publish("INIT")
 
-      @channel
-        .queue(name: queue_name, durable: false, auto_delete: true)
-        .bind(exchange: name, routing_key: "#")
-        .subscribe(&callback)
-      # Finex.logger.info { "Subscribed to exchange #{name}" }
+      exchange.subscribe(&callback)
     end
 
   end
