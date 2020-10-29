@@ -42,9 +42,8 @@ module Finex::MQ
       queue_name = "finex.#{Random.new.hex(10)}"
       queue = @channel.queue(name: queue_name, durable: false, auto_delete: true)
       exchange = queue.bind(exchange: name, routing_key: "#")
-      exchange.publish("INIT")
 
-      exchange.subscribe(&callback)
+      exchange.subscribe(no_ack: true, &callback)
     end
 
   end
